@@ -2,6 +2,7 @@ package org.northcoders.security_and_authentication.controller;
 
 
 import org.northcoders.security_and_authentication.repository.UserRepository;
+import org.northcoders.security_and_authentication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -15,6 +16,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/v1")
 public class GreetingController {
+
+    @Autowired
+    UserService userService;
 
     @GetMapping("/open/greeting")
     public String welcome(){
@@ -31,6 +35,8 @@ public class GreetingController {
 
         return "Hi, " + username.get() + "! What's up?";
     }
+
+
 
 
 }

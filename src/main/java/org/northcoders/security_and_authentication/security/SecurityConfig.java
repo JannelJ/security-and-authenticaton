@@ -20,14 +20,7 @@ public class SecurityConfig {
                     auth.requestMatchers("/api/v1/open/greeting").permitAll();
                     auth.requestMatchers("/api/v1/protected/greeting").authenticated();
                 })
-//                .formLogin(withDefaults());
-//                .oauth2Login(oauth2Login ->
-//                        oauth2Login
-//
-//                                .loginPage("/oauth2/authorization/github")
-//                                .defaultSuccessUrl("/protected/greeting", true)
-//                                .permitAll()
-//                );
+
                 .oauth2Login(withDefaults());
 
         return http.build();
